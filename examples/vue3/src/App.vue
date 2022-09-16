@@ -1,3 +1,8 @@
+<!--
+ * @Author: lee
+ * @Date: 2022-09-13 16:53:31
+ * @LastEditTime: 2022-09-14 17:24:57
+-->
 <template>
   <div id="nav">
     <router-link to="/home">首页</router-link> | <router-link to="/dialog">弹窗</router-link> |
@@ -17,6 +22,9 @@ export default {
   },
   mounted() {
     window.$wujie?.bus.$on("vue3-router-change", (path) => this.$router.push(path));
+    window.$wujie?.bus.$on("update_loginInfo", function (res) {
+      console.log(res, '-----------------vue3');
+    });
   },
 };
 </script>

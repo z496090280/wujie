@@ -63,6 +63,9 @@
       </div>
       <router-link to="/angular12">angular12</router-link>
       <router-link to="/all">all</router-link>
+      <router-link to="/am-model-ui">去模型</router-link>
+      <router-link to="/goLogin">去登录</router-link>
+      <router-link to="/appStore">应用中心</router-link>
       <a-button class="menu-icon" type="primary" icon="unordered-list" size="large" @click.stop="active = !active" />
     </div>
     <div class="content" @click="active = false">
@@ -92,6 +95,11 @@ export default {
       this[name + "Flag"] = !this[name + "Flag"];
     },
   },
+  mounted() {
+    window.$wujie?.bus.$on('test_login_change', function(...args) {
+      console.log(args)
+    })
+  }
 };
 </script>
 

@@ -49,6 +49,9 @@ function Nav() {
   const location = useLocation()
   useEffect(() => {
     window.$wujie?.bus.$emit('sub-route-change', "react17", location.pathname)
+    window.$wujie?.bus.$on("update_loginInfo", function (res) {
+      console.log(res, '-----------------17,属于嵌套')
+    });
   }, [location])
 
   return (

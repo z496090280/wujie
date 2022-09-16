@@ -1,0 +1,61 @@
+<!--
+ * @Author: lee
+ * @Date: 2022-09-13 16:53:31
+ * @LastEditTime: 2022-09-16 17:25:39
+-->
+<template>
+  <div>
+    <!--单例模式，name相同则复用一个无界实例，改变url则子应用重新渲染实例到对应路由 -->
+    <WujieVue width="100%" height="100%" :fetch="fetch"  name="vue-Iframe" :url="vue2Url"></WujieVue>
+  </div>
+
+</template>
+
+<script>
+// import hostMap from "../hostMap";
+// import wujieVue from "wujie-vue2";
+// import fetch from "../fetch";
+export default {
+  data() {
+    return {
+      url: ''
+    }
+  },
+  computed: {
+    vue2Url() {
+      // return hostMap("//localhost:7200/") + `#/${this.$route.params.path}`;
+      return this.$route.query.url
+    },
+  },
+  methods: {
+    jump(name) {
+      this.$router.push({ name });
+    },
+    handleFn(id) {
+      console.log(id)
+    },
+    fetch(url, options) {
+      return window.fetch(url, { ...options, credentials: "omit" });
+    }
+  },
+  // watch: {
+  //   $route() {
+  //     wujieVue.bus.$emit("vue2-router-change", `/${this.$route.params.path}`);
+  //   },
+  // },
+  mounted() {
+    let tttt = window.parent.testGlobalMsg
+    let query = this.$route.query.url
+    this.url = this.$route.query.url
+    console.log('---------------------:', tttt,query)
+  }
+};
+</script>
+
+<style  scoped>
+.box {
+  background: #ccc;
+  color: #fff;
+  cursor: pointer;
+}
+</style>

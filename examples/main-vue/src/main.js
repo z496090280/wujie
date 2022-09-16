@@ -22,7 +22,7 @@ Vue.use(WujieVue).use(Switch).use(Tooltip).use(button).use(Icon);
 
 Vue.config.productionTip = false;
 
-bus.$on("click", (msg) => window.alert(msg));
+// bus.$on("click", (msg) => window.alert(msg));
 
 // 在 xxx-sub 路由下子应用将激活路由同步给主应用，主应用跳转对应路由高亮菜单栏
 bus.$on("sub-route-change", (name, path) => {
@@ -30,10 +30,24 @@ bus.$on("sub-route-change", (name, path) => {
   const mainPath = `/${name}-sub${path}`;
   const currentName = router.currentRoute.name;
   const currentPath = router.currentRoute.path;
+  console.log('子路由 mainName ：', mainName)
+  console.log('子路由 mainPath ：', mainPath)
+  console.log('主路由 currentName ：', currentName)
+  console.log('主路由 currentPath ：', currentPath)
   if (mainName === currentName && mainPath !== currentPath) {
+    console.error('我居然执行了')
     router.push({ path: mainPath });
   }
 });
+bus.$on('test_login_change', (res) => {
+  router.push({path: '/appStore'});
+  bus.$emit('update_loginInfo', res)
+  window.testGlobalMsg = {
+    theme: 'dark',
+    projectId: '4919a277-3724-45e0-8a6a-08da6931afff',
+    name: 'DD%20Enterprise'
+  }
+})
 
 const degrade = window.localStorage.getItem("degrade") === "true" || !window.Proxy || !window.CustomElementRegistry;
 const props = {
@@ -81,6 +95,7 @@ setupApp({
   url: hostMap("//localhost:7200/"),
   attrs,
   exec: true,
+  alive: true,
   props,
   fetch: credentialsFetch,
   degrade,
@@ -128,9 +143,9 @@ if (window.localStorage.getItem("preload") !== "false") {
   preloadApp({
     name: "react16",
   });
-  preloadApp({
-    name: "react17",
-  });
+  // preloadApp({
+  //   name: "react17",
+  // });
   preloadApp({
     name: "vue2",
   });

@@ -13,6 +13,10 @@ import Vue3 from "../views/Vue3.vue";
 import Vue3Sub from "../views/Vue3-sub.vue";
 import Angular12 from "../views/Angular12.vue";
 import Multiple from "../views/Multiple.vue";
+import AmModel from "../views/Am-model-ui.vue";
+import Login from "../views/Login.vue";
+import AppStore from "../views/AppStore.vue";
+import Iframe from "../views/Iframe.vue";
 const basename = process.env.NODE_ENV === "production" ? "/demo-main-vue/" : "";
 
 Vue.use(VueRouter);
@@ -84,13 +88,30 @@ const routes = [
     component: Multiple,
   },
   {
+    path: "/am-model-ui",
+    name: "am-model-ui",
+    component: AmModel,
+  },{
+    path: "/goLogin",
+    name: "goLogin",
+    component: Login,
+  },{
+    path: "/appStore",
+    name: "appStore",
+    component: AppStore,
+  },{
+    path: "/iframe",
+    name: "iframe",
+    component: Iframe,
+  },
+  {
     path: "/",
     redirect: "/home",
   },
 ];
 
 const router = new VueRouter({
-  mode: "history",
+  mode: "hash",
   base: basename,
   routes,
 });

@@ -1,3 +1,8 @@
+/*
+ * @Author: lee
+ * @Date: 2022-09-13 16:53:31
+ * @LastEditTime: 2022-09-14 17:19:52
+ */
 import React, { useEffect } from "react";
 import { NavLink, Route, Switch, Redirect, useLocation } from "react-router-dom";
 import Dialog from "./Dialog";
@@ -42,8 +47,11 @@ export default function App() {
   const location = useLocation()
   useEffect(() => {
     window.$wujie?.bus.$emit('sub-route-change', "react16", location.pathname)
+    window.$wujie?.bus.$on("update_loginInfo", function (res) {
+      console.log(res, '-----------------16')
+    });
   }, [location])
-
+  console.log(location)
   return (
     <div>
       <nav>
