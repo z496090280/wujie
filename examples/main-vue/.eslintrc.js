@@ -9,6 +9,12 @@ module.exports = {
   },
   ignorePatterns: ["**/*.ts", "node_modules"],
   rules: {
+    "prettier/prettier": [
+      "error",
+      {
+        useTabs: false,
+      },
+    ],
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-prototype-builtins": "off",

@@ -30,24 +30,24 @@ bus.$on("sub-route-change", (name, path) => {
   const mainPath = `/${name}-sub${path}`;
   const currentName = router.currentRoute.name;
   const currentPath = router.currentRoute.path;
-  console.log('子路由 mainName ：', mainName)
-  console.log('子路由 mainPath ：', mainPath)
-  console.log('主路由 currentName ：', currentName)
-  console.log('主路由 currentPath ：', currentPath)
+  console.log("子路由 mainName ：", mainName);
+  console.log("子路由 mainPath ：", mainPath);
+  console.log("主路由 currentName ：", currentName);
+  console.log("主路由 currentPath ：", currentPath);
   if (mainName === currentName && mainPath !== currentPath) {
-    console.error('我居然执行了')
+    console.error("我居然执行了");
     router.push({ path: mainPath });
   }
 });
-bus.$on('test_login_change', (res) => {
-  router.push({path: '/appStore'});
-  bus.$emit('update_loginInfo', res)
+bus.$on("test_login_change", (res) => {
+  router.push({ path: "/appStore" });
+  bus.$emit("update_loginInfo", res);
   window.testGlobalMsg = {
-    theme: 'dark',
-    projectId: '4919a277-3724-45e0-8a6a-08da6931afff',
-    name: 'DD%20Enterprise'
-  }
-})
+    theme: "dark",
+    projectId: "4919a277-3724-45e0-8a6a-08da6931afff",
+    name: "DD%20Enterprise",
+  };
+});
 
 const degrade = window.localStorage.getItem("degrade") === "true" || !window.Proxy || !window.CustomElementRegistry;
 const props = {
