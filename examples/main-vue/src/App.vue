@@ -96,10 +96,10 @@ export default {
     },
   },
   mounted() {
-    window.$wujie?.bus.$on('test_login_change', function(...args) {
-      console.log(args)
-    })
-  }
+    window.$wujie?.bus.$on("test_login_change", function (...args) {
+      console.log(args);
+    });
+  },
 };
 </script>
 

@@ -41,6 +41,7 @@ bus.$on("sub-route-change", (name, path) => {
 });
 bus.$on("test_login_change", (res) => {
   router.push({ path: "/appStore" });
+  // 此处update_loginInfo事件可以在刷新token时候调用
   bus.$emit("update_loginInfo", res);
   window.testGlobalMsg = {
     theme: "dark",

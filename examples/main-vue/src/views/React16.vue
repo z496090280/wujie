@@ -21,7 +21,7 @@ export default {
     // window.$wujie?.bus.$on("update_loginInfo", function (res) {
     //   console.log(res, '-----------------16')
     // });
-  }
+  },
 };
 </script>
 

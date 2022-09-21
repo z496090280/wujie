@@ -1,8 +1,14 @@
+<!--
+ * @Author: lee
+ * @Date: 2022-09-13 16:53:31
+ * @LastEditTime: 2022-09-21 11:50:19
+-->
 <template>
   <div>
     <HelloWorld msg="Vue2示例"></HelloWorld>
     <div class="content" style="text-align: center">
       <p>
+        <Button @click="handleFn">测试vue3能否接受到</Button>
         当前vue版本
         <el-tag style="vertical-align: text-top" size="small">2.6.11</el-tag>
       </p>
@@ -30,6 +36,12 @@ export default {
     return {
       open: window.open,
     };
+  },
+  methods: {
+    handleFn() {
+      // 子应用发送事件
+      window.$wujie?.bus.$emit("buttonEvent", "buttonEvent的参数");
+    },
   },
   components: {
     HelloWorld,
