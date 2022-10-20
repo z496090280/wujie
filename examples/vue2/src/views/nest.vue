@@ -2,22 +2,26 @@
 <!--
  * @Author: lee
  * @Date: 2022-10-19 18:15:21
- * @LastEditTime: 2022-10-20 14:47:50
+ * @LastEditTime: 2022-10-20 16:14:50
 -->
 <template>
   <div>
-    123456
+    vue3
     <WujieVue
       width="100%"
       height="500px"
-      url="//localhost:7300/"
+      url="http://192.168.9.118:9000/"
       name="test_nest"
-      :alive=true
+      :exec="true"
+      :alive="true"
       id="test_nest"
+      :sync="true"
+      :fetch="fetch"
       :beforeLoad="beforeLoad"
       :beforeMount="beforeMount"
       :loadError="loadError"
       :afterMount="afterMount"
+      :props="propsO"
     ></WujieVue>
   </div>
 </template>
@@ -28,12 +32,21 @@ export default {
   components: {},
   props: {},
   data() {
-    return {};
+    return {
+      propsO: {
+        jump: (name) => {
+          this.$router.push({ name });
+        },
+      },
+    };
   },
   watch: {},
   computed: {},
   methods: {
     ...lifecycles,
+    fetch(url, options) {
+      return window.fetch(url, { ...options, credentials: "omit" });
+    },
   },
   created() {},
   mounted() {},

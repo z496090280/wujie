@@ -1,7 +1,7 @@
 /*
  * @Author: lee
  * @Date: 2022-09-13 16:53:31
- * @LastEditTime: 2022-09-14 17:19:52
+ * @LastEditTime: 2022-10-20 15:37:19
  */
 import React, { useEffect } from "react";
 import { NavLink, Route, Switch, Redirect, useLocation } from "react-router-dom";
@@ -46,6 +46,7 @@ export default function App() {
   // 在 react16-sub 路由下主动告知主应用路由跳转，主应用也跳到相应路由高亮菜单栏
   const location = useLocation()
   useEffect(() => {
+    console.warn(location.pathname,'react-16 location.pathname')
     window.$wujie?.bus.$emit('sub-route-change', "react16", location.pathname)
     window.$wujie?.bus.$on("update_loginInfo", function (res) {
       console.log(res, '-----------------16')

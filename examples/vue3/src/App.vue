@@ -1,11 +1,11 @@
 <!--
  * @Author: lee
  * @Date: 2022-09-13 16:53:31
- * @LastEditTime: 2022-09-21 11:52:40
+ * @LastEditTime: 2022-10-20 15:11:22
 -->
 <template>
   <div id="nav">
-    <router-link to="/home">首页</router-link> | <router-link to="/dialog">弹窗</router-link> |
+    <router-link to="/home">首页3</router-link> | <router-link to="/dialog">弹窗</router-link> |
     <router-link to="/location">路由</router-link> | <router-link to="/contact">通信</router-link> |
     <router-link to="/state">状态</router-link>
   </div>
