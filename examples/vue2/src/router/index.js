@@ -1,7 +1,7 @@
 /*
  * @Author: lee
  * @Date: 2022-09-13 16:53:31
- * @LastEditTime: 2022-09-15 15:39:19
+ * @LastEditTime: 2022-10-19 18:15:34
  */
 import Home from "../views/Home.vue";
 
@@ -28,6 +28,11 @@ const routes = [
     path: "/location",
     name: "location",
     component: () => import(/* webpackChunkName: "Page3" */ "../views/Location.vue"),
+  },
+  {
+    path: "/nest",
+    name: "nest",
+    component: () => import(/* webpackChunkName: "Page3" */ "../views/nest.vue"),
   },
 ];
 

@@ -1,3 +1,8 @@
+/*
+ * @Author: lee
+ * @Date: 2022-10-19 18:06:30
+ * @LastEditTime: 2022-10-20 09:18:17
+ */
 import Vue from "vue";
 import App from "./App.vue";
 import routes from "./router";
@@ -26,7 +31,8 @@ import "ant-design-vue/es/select/style/index.css";
 import "ant-design-vue/es/modal/style/index.css";
 import "ant-design-vue/es/popover/style/index.css";
 import "./index.css";
-
+import WujieVue from "wujie-vue2";
+Vue.use(WujieVue);
 const base = process.env.NODE_ENV === "production" ? "/demo-vue2/" : "";
 
 [Tag, Button, Select, Option, Popover, Dialog].forEach((element) => Vue.use(element));
@@ -35,7 +41,11 @@ const base = process.env.NODE_ENV === "production" ? "/demo-vue2/" : "";
 Vue.use(VueRouter);
 
 Vue.config.productionTip = false;
-
+//添加以下代码
+const originalPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err);
+};
 if (window.__POWERED_BY_WUJIE__) {
   let instance;
   window.__WUJIE_MOUNT = () => {

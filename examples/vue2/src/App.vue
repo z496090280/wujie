@@ -1,14 +1,14 @@
 <!--
  * @Author: lee
  * @Date: 2022-09-13 16:53:31
- * @LastEditTime: 2022-09-15 16:12:55
+ * @LastEditTime: 2022-10-19 18:13:19
 -->
 <template>
   <div id="app">
     <div id="nav">
       <router-link to="/home">首页</router-link> | <router-link to="/dialog">弹窗</router-link> |
       <router-link to="/location">路由</router-link> | <router-link to="/communication">通信</router-link>
-      <!-- | <router-link to="/nest">嵌套iframe</router-link> -->
+      <router-link to="/nest">嵌套iframe</router-link>
     </div>
     <router-view />
   </div>
