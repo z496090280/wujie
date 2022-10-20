@@ -1,7 +1,7 @@
 /*
  * @Author: lee
  * @Date: 2022-10-19 18:06:30
- * @LastEditTime: 2022-10-20 09:18:17
+ * @LastEditTime: 2022-10-20 14:48:43
  */
 import Vue from "vue";
 import App from "./App.vue";
@@ -32,6 +32,7 @@ import "ant-design-vue/es/modal/style/index.css";
 import "ant-design-vue/es/popover/style/index.css";
 import "./index.css";
 import WujieVue from "wujie-vue2";
+
 Vue.use(WujieVue);
 const base = process.env.NODE_ENV === "production" ? "/demo-vue2/" : "";
 
