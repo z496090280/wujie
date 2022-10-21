@@ -2,7 +2,7 @@
 <!--
  * @Author: lee
  * @Date: 2022-10-19 18:15:21
- * @LastEditTime: 2022-10-20 16:14:50
+ * @LastEditTime: 2022-10-21 14:12:06
 -->
 <template>
   <div>
@@ -10,10 +10,9 @@
     <WujieVue
       width="100%"
       height="500px"
-      url="http://192.168.9.118:9000/"
-      name="test_nest"
-      :exec="true"
-      :alive="true"
+      url="//localhost:7300/"
+      name="test_nest_vue2"
+      
       id="test_nest"
       :sync="true"
       :fetch="fetch"

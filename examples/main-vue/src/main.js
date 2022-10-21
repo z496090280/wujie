@@ -14,7 +14,6 @@ import "ant-design-vue/es/switch/style/index.css";
 import "ant-design-vue/es/tooltip/style/index.css";
 import "ant-design-vue/es/icon/style/index.css";
 import lifecycles from "./lifecycle";
-import plugins from "./plugin";
 
 const isProduction = process.env.NODE_ENV === "production";
 const { setupApp, preloadApp, bus } = WujieVue;
@@ -66,30 +65,6 @@ const attrs = isProduction ? { src: hostMap("//localhost:8000/") } : {};
  * 配置应用，主要是设置默认配置
  * preloadApp、startApp的配置会基于这个配置做覆盖
  */
-setupApp({
-  name: "react16",
-  url: hostMap("//localhost:7600/"),
-  attrs,
-  exec: true,
-  props,
-  fetch: credentialsFetch,
-  plugins,
-  prefix: { "prefix-dialog": "/dialog", "prefix-location": "/location" },
-  degrade,
-  ...lifecycles,
-});
-
-setupApp({
-  name: "react17",
-  url: hostMap("//localhost:7100/"),
-  attrs,
-  exec: true,
-  alive: true,
-  props,
-  fetch: credentialsFetch,
-  degrade,
-  ...lifecycles,
-});
 
 setupApp({
   name: "vue2",
@@ -141,12 +116,6 @@ setupApp({
 });
 
 if (window.localStorage.getItem("preload") !== "false") {
-  preloadApp({
-    name: "react16",
-  });
-  // preloadApp({
-  //   name: "react17",
-  // });
   preloadApp({
     name: "vue2",
   });
